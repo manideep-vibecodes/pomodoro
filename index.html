@@ -1,0 +1,79 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background-gradient"></div>
+
+  <main class="app-shell">
+    <header class="hero">
+      <div class="hero-text">
+        <h1>Pomodoro</h1>
+        <p>Stay in flow with focused sprints and mindful breaks.</p>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image">
+          <!-- purely decorative, created with CSS shapes -->
+          <div class="hero-tomato"></div>
+          <div class="hero-orbit orbit-1"></div>
+          <div class="hero-orbit orbit-2"></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="app">
+      <div class="phase-pill" id="phasePill">
+        <span id="phaseLabel">Focus</span>
+      </div>
+
+      <div class="timer-card">
+        <div class="timer-display" id="timeDisplay">25:00</div>
+        <div class="controls">
+          <button id="startBtn" class="btn primary">Start</button>
+          <button id="pauseBtn" class="btn ghost">Pause</button>
+          <button id="resetBtn" class="btn ghost">Reset</button>
+		   <button id="pipBtn" class="btn ghost">Pop-out window</button>
+        </div>
+        <div class="stats">
+          <span class="stat-label">Completed Pomodoros</span>
+          <span class="stat-value" id="pomoCount">0</span>
+        </div>
+      </div>
+
+      <section class="settings">
+        <h2>Session settings</h2>
+        <div class="settings-grid">
+          <label>
+            <span>Focus (min)</span>
+            <input type="number" id="focusInput" min="1" value="25" />
+          </label>
+          <label>
+            <span>Short break (min)</span>
+            <input type="number" id="shortInput" min="1" value="5" />
+          </label>
+          <label>
+            <span>Long break (min)</span>
+            <input type="number" id="longInput" min="1" value="15" />
+          </label>
+          <label>
+            <span>Pomodoros before long break</span>
+            <input type="number" id="pomosBeforeLong" min="1" value="4" />
+          </label>
+        </div>
+        <button id="saveSettingsBtn" class="btn secondary">
+          Save settings
+        </button>
+      </section>
+
+      <footer class="footer">
+        <p>Tip: Press Spacebar to quickly start or pause the timer.</p>
+      </footer>
+    </section>
+
+	<audio id="focusSound" src="focus.mp3" preload="auto"></audio>
+<audio id="shortBreakSound" src="short-break.mp3" preload="auto"></audio>
+<audio id="longBreakSound" src="long-break.mp3" preload="auto"></audio>
+  </main>
+  <script src="app.js"></script>
+</body>

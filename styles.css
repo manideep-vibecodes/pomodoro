@@ -1,0 +1,330 @@
+:root {
+  --focus-color: #22c55e;
+  --short-color: #0ea5e9;
+  --long-color: #a855f7;
+  --bg-dark: #020617;
+  --bg-card: #020617cc;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-main);
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #1e293b, #020617 55%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-gradient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.25), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.2), transparent 60%);
+  z-index: -1;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 960px;
+  padding: 2rem 1.5rem;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+
+.hero-text {
+  flex: 1 1 260px;
+}
+
+.hero-text h1 {
+  font-size: 2.2rem;
+  margin: 0 0 0.4rem;
+}
+
+.hero-text p {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 26rem;
+}
+
+.hero-visual {
+  flex: 0 0 220px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  box-shadow:
+    0 25px 50px rgba(15, 23, 42, 0.8),
+    0 0 0 1px rgba(148, 163, 184, 0.1);
+  overflow: hidden;
+}
+
+/* Decorative “tomato” timer illustration */
+
+.hero-tomato {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #f97316, #ef4444);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 16px 32px rgba(248, 113, 113, 0.4);
+}
+
+.hero-tomato::before {
+  content: "";
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: conic-gradient(from 270deg, #22c55e 0 60%, #1f2937 60% 100%);
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 12px 24px rgba(34, 197, 94, 0.5);
+}
+
+.hero-tomato::after {
+  content: "";
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 3px solid rgba(15, 23, 42, 0.8);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-image .hero-orbit {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px dashed rgba(148, 163, 184, 0.35);
+}
+
+.orbit-1 {
+  width: 150px;
+  height: 150px;
+  left: 25px;
+  top: 25px;
+}
+
+.orbit-2 {
+  width: 180px;
+  height: 180px;
+  left: 10px;
+  top: 10px;
+}
+
+.app {
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: 1.75rem 1.5rem 1.4rem;
+  box-shadow:
+    0 24px 48px rgba(15, 23, 42, 0.7),
+    0 0 0 1px rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(12px);
+}
+
+.phase-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
+.phase-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--focus-color);
+}
+
+.timer-card {
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+
+.timer-display {
+  font-size: 3.4rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease,
+    color 120ms ease, border-color 120ms ease;
+}
+
+.btn.primary {
+  background: #22c55e;
+  color: #022c22;
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+}
+
+.btn.secondary {
+  background: #0f172a;
+  color: var(--text-main);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.65);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.settings {
+  border-top: 1px solid rgba(51, 65, 85, 0.9);
+  padding-top: 1.2rem;
+  margin-top: 0.75rem;
+}
+
+.settings h2 {
+  font-size: 0.95rem;
+  margin: 0 0 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.settings label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.settings label span {
+  color: var(--text-main);
+}
+
+.settings input {
+  width: 4.2rem;
+  background: #020617;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  padding: 0.25rem 0.5rem;
+  color: var(--text-main);
+  text-align: center;
+}
+
+.settings input:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 1px;
+}
+
+.footer {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-visual {
+    align-self: center;
+  }
+
+  .timer-display {
+    font-size: 3rem;
+  }
+}
